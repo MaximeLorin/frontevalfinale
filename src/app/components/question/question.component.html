@@ -1,0 +1,13 @@
+<article class="question" [ngClass]="{ inHomePage: homePage }">
+  <h2 class="question__title" [routerLink]="['/question', question?.id]">
+    {{ question?.title }}
+  </h2>
+  <p class="question__content" *ngIf="!homePage && !modifyContent">
+    {{ question?.content }}
+  </p>
+  <p class="question__author">{{ question?.author }}</p>
+  <p class="question__date">{{ formatedDate }}</p>
+  <!-- <p class="question__delete" (click)="deleteButton()">
+    <b>Supprimer</b>
+  </p> -->
+</article>

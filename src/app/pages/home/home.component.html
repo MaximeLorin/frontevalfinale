@@ -1,0 +1,9 @@
+<app-add-question></app-add-question>
+<div *ngFor="let question of apiServices.questionList">
+  <app-question
+    [question]="question"
+    (deleted)="apiServices.deleteQuestion($event)"
+    (modify)="apiServices.modifyQuestion($event, $event)"
+    [homePage]="true"
+  ></app-question>
+</div>

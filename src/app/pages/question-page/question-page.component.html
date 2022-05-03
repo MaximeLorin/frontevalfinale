@@ -1,0 +1,6 @@
+<section class="questionPage">
+  <app-question
+    [question]="question"
+    (deleted)="apiService.deleteQuestion($event)"
+  ></app-question>
+</section>

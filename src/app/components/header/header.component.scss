@@ -1,0 +1,101 @@
+@import '~src/scss/reset';
+@import '~src/scss/variable';
+@import "~src/scss/mixins";
+@import '~src/scss/typo';
+
+.header{
+    height: 120px;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    &__title{
+        &:hover{
+            cursor:pointer;
+        }
+        
+    }
+    &__nav{
+        width: 25%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;    
+        &--element{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            
+        }
+ 
+    }
+    &__search{
+        position: absolute;
+        top: 52%;
+        &--form{
+            display: flex;
+            flex-direction: column;
+            font-size:$parag-font;
+            &__input{
+                z-index: 10px;
+                height:20px;
+                @include radiusBorder;
+                font-size: $parag-font;
+                padding: 5px;
+                margin-top: 5px;
+                border: solid $secondairy-color 2px;
+                &:focus{
+                    background-color: lighten($color: $secondairy-color, $amount: 40%);
+                    border-color: darken($color: $secondairy-color, $amount: 10%);
+                    outline-style: none;
+                
+                }
+            }
+        }
+        &--list{
+            z-index: 10;
+            background-color: lighten($color: $secondairy-color, $amount: 40%);
+            overflow: hidden;
+            @include radiusBorder;
+            position:relative;
+            top:0px;
+            // box-shadow: 0px 2px 5px 0px   $secondairy-color;
+            
+        }
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        width: 90%;
+        height: 5px;
+        bottom:0;
+        background-color: $secondairy-color;
+        @include radiusBorder;
+    }
+  
+}
+.menuLink{
+    position: relative;
+   
+    &::after{
+        transition: all 0.2s;
+        content: '';
+        position: absolute;
+        transform-origin: left;
+        transform: scaleX(0);
+        left: 0px;
+        top:32px;
+        height: 3px;
+        border-radius: 3px;
+        width: 85%;
+        background-color: $secondairy-color;
+       
+    }
+    &:hover{
+        color: darken($color: $secondairy-color, $amount: 10%);
+    }
+}
+.menuLink:hover::after{
+   
+    transform : scaleX(1);
+}

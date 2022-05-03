@@ -1,0 +1,51 @@
+<header class="header">
+  <h1 class="header__title" [routerLink]="['/']">ZEN overflow</h1>
+  <nav class="header__nav">
+    <ul class="header__nav--element">
+      <li>
+        <a
+          [routerLink]="['/connect', type[0]]"
+          *ngIf="!connectServices.isPresent()"
+          class="menuLink"
+          >Connexion</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/']"
+          (click)="deconnect()"
+          *ngIf="connectServices.isPresent()"
+          class="menuLink"
+          >Déconnexion</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/connect', type[1]]"
+          *ngIf="!connectServices.isPresent()"
+          class="menuLink"
+          >Inscription</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <div class="header__search">
+    <form [formGroup]="searchForm" class="header__search--form">
+      <label for="Search">Chercher un topic</label>
+      <input
+        type="text"
+        formControlName="title"
+        class="header__search--form__input"
+      />
+    </form>
+    <div
+      *ngFor="let article of apiServices.questionSearchList"
+      class="header__search--list"
+    >
+      <!-- <app-mini-article
+        [article]="article"
+        class="miniArticleList"
+      ></app-mini-article> -->
+    </div>
+  </div>
+</header>

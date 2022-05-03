@@ -1,0 +1,22 @@
+@import '~src/scss/reset';
+@import '~src/scss/variable';
+@import "~src/scss/mixins";
+@import '~src/scss/typo';
+
+.question{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    height: 150px;
+    border-bottom: solid 5px $secondairy-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include radiusBorder;
+    transition: all 0.2s;
+    &:hover{
+        cursor: pointer;
+        background-color: lighten($color: $secondairy-color, $amount: 40%);
+    }
+}

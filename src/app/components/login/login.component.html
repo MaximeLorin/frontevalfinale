@@ -1,0 +1,17 @@
+<form [formGroup]="logUser" (ngSubmit)="submitLogUser()">
+  <label for="Username">Nom d'utilisateur</label>
+  <input type="text" formControlName="username" />
+  <!-- <label for="Email">Email</label>
+      <input type="text" formControlName="email" /> -->
+  <label for="Password">Mot de Passe</label>
+  <input type="text" formControlName="password" />
+
+  <button [disabled]="!logUser.valid" type="submit">+ Se connecter</button>
+  <button
+    (click)="deconnect()"
+    *ngIf="connectService.isPresent()"
+    type="submit"
+  >
+    + Se deconnecter
+  </button>
+</form>

@@ -1,0 +1,20 @@
+//colors
+
+$primary-color: #16191b;
+$secondairy-color: #f06b12;
+$btnFont-color: white;
+
+//fonts sizes
+$cell-font: 2.5rem;
+$title-font: 2.9rem;
+$keyboard-font: 1.4rem;
+$subtitle-font: 1.5rem;
+$parag-font: 1.3rem;
+$card-font: 1.1rem;
+$icon-size: 1rem;
+
+//colors
+$lighten-black: lighten(
+  $color: #000000,
+  $amount: 70%,
+);

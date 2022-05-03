@@ -1,0 +1,38 @@
+<div class="openSubQuestion">
+  <p class="openSubQuestion__text" (click)="openSubscribe()">
+    {{ questionString }}
+  </p>
+</div>
+<section class="subQuestion" [ngClass]="open ? 'open' : 'close'">
+  <form
+    [formGroup]="createQuestion"
+    (ngSubmit)="submitQuestion()"
+    class="subQuestion__form"
+  >
+    <label for="Titre">Titre</label>
+    <input
+      type="text"
+      formControlName="title"
+      class="subQuestion__form--input"
+    />
+    <label for="Contenu">Contenu</label>
+    <textarea
+      name="Contenu"
+      id="Contenu"
+      cols="40"
+      rows="10"
+      formControlName="content"
+      class="subQuestion__form--input"
+    ></textarea>
+
+    <label for="Publier">Poser la question</label>
+
+    <button
+      [disabled]="!createQuestion.valid"
+      type="submit"
+      class="subQuestion__form--btn"
+    >
+      + Poser la question
+    </button>
+  </form>
+</section>

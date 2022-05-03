@@ -1,0 +1,81 @@
+@import '~src/scss/reset';
+@import '~src/scss/variable';
+@import "~src/scss/mixins";
+@import '~src/scss/typo';
+
+.open{
+    transform-origin: top;
+    transform: scaleY(1);
+    
+    transition: all 0.2s;
+    opacity: 1;
+}
+.close{
+    height: 0px;
+    transform-origin: top;
+    transition: all 0.2s;
+    transform:scaleY(0);
+    opacity: 0;
+}
+.subQuestion{
+    transition: all 0.2s;
+    margin-top:20px;
+    overflow: hidden;
+    &__form{
+        @include itemCenterColumn;
+        font-size: $parag-font;
+        &--input{
+            @include radiusBorder;
+            padding: 5px;
+            margin-top:5px ;
+            margin-bottom:10px;
+            font-size: $parag-font;
+            border:solid 2px $secondairy-color;
+            resize: none;
+            &:focus{
+                background-color: lighten($color: $secondairy-color, $amount: 40%);
+                border-color: darken($color: $secondairy-color, $amount: 10%);
+                outline-style: none;
+            
+            }
+        }
+        &--check{
+            accent-color: $secondairy-color;
+            @include radiusBorder;
+            border:solid 2px $secondairy-color;
+            width: 1.45em;
+            height: 1.45em;
+        }
+        &--btn{
+            @include radiusBorder;
+            padding: 5px;
+            margin-top:15px ;
+            margin-bottom:10px;
+            font-size: $parag-font;
+            border:solid 2px $secondairy-color;
+            background-color: lighten($color: $secondairy-color, $amount: 40%);
+        }
+    }
+}
+.openSubQuestion{
+    @include itemCenter;
+
+    position: relative;
+
+    &__text{
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+        border-bottom: 3px solid $secondairy-color;
+        border-left: 3px solid $secondairy-color;
+        border-right: 3px solid $secondairy-color;
+        transition: all 0.2s;
+        @include radiusBorder;
+        &:hover{
+            cursor: pointer;
+            background-color: lighten($color: $secondairy-color, $amount: 40%);
+            color: darken($color: $secondairy-color, $amount: 40%);
+        }
+    }
+    
+}

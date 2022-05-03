@@ -1,0 +1,22 @@
+@mixin itemCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin itemCenterColumn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin cardSize {
+  width: 21.5%;
+  min-height: 370px;
+  margin-right: 1.75%;
+  margin-left: 1.75%;
+  margin-bottom: 1.75%;
+}
+
+@mixin radiusBorder{
+  border-bottom-left-radius: 8px;
+}
