@@ -26,7 +26,6 @@ export class QuestionComponent implements OnInit {
     if(this.question){
       let test:Date=this.question?.question_date;
       let date=new Date(test)
-      console.log(date.toLocaleDateString());
       
       this.formatedDate=date.toLocaleDateString()+" à "+date.toLocaleTimeString();
 

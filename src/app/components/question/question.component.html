@@ -5,8 +5,11 @@
   <p class="question__content" *ngIf="!homePage && !modifyContent">
     {{ question?.content }}
   </p>
-  <p class="question__author">{{ question?.author }}</p>
-  <p class="question__date">{{ formatedDate }}</p>
+  <div class="question__info">
+    <a class="question__info--author">{{ question?.author }}</a>
+    <p class="question__info--date">{{ formatedDate }}</p>
+  </div>
+
   <!-- <p class="question__delete" (click)="deleteButton()">
     <b>Supprimer</b>
   </p> -->

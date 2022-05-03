@@ -48,6 +48,7 @@ export class ApiService {
 
   public async addQuestion(question:Question){
     const newQuestion= await axios.post(this.urlBase,question);
+
     this.questionList.push(newQuestion.data);
   }
 

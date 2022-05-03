@@ -4,19 +4,50 @@
 @import '~src/scss/typo';
 
 .question{
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-top: 20px;
-    height: 150px;
+    height: 300px;
     border-bottom: solid 5px $secondairy-color;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    border-top-right-radius: 8px;
     @include radiusBorder;
     transition: all 0.2s;
+    position: relative;
     &:hover{
         cursor: pointer;
         background-color: lighten($color: $secondairy-color, $amount: 40%);
     }
+    &__info{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        
+        right: 15px;
+        bottom: 15px;
+        &--author{
+            font-size: 1.2rem;
+            margin-right: 7px;
+            color: $secondairy-color;
+            font-weight: bolder;
+            transition: all 0.2s;
+
+            &:hover{
+                cursor:pointer;
+                color:lighten($color: $secondairy-color, $amount: 20%);
+            }
+        }
+        &--date{
+            align-self: center;
+            padding-top: 3px;
+            font-size: 1rem;
+        }
+    }
+}
+.inHomePage{
+    height: 110px;
 }
