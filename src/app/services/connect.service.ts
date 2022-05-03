@@ -49,9 +49,11 @@ export class ConnectService {
     console.log(this.user);
     
   }
+
   async subscribe(user:Object){
     await axios.post(this.urlBase,user);
   }
+
   getCredential():string{
     let credential=sessionStorage.getItem("credential");
 
@@ -63,6 +65,7 @@ export class ConnectService {
     }
     return "";
   }
+
   async getUserId(username:string):Promise<User>{
     const user=await axios.get(this.urlBase+"/"+username);
     let data= user.data;
@@ -77,6 +80,7 @@ export class ConnectService {
   intercetor(){
     axios.interceptors.request.use(
       (config: AxiosRequestConfig) => {
+        console.log(this.getCredential());
         if (config.headers && config.method!=='get' && config.url!==this.urlBase){
           config.headers['Authorization'] = 'Basic '+this.getCredential();
         }
@@ -101,6 +105,7 @@ export class ConnectService {
       }
     );
   }
+
   async mapUser(uname:string){
     this.user=await this.getUserId(uname);
   }
