@@ -11,13 +11,25 @@ export interface Question{
   author:string
 }
 
+export interface Answer{
+  id:string,
+  answer_date:Date,
+  content:string,
+  flag:boolean,
+  // author:string
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   public questionList:Question[]=[];
   public questionSearchList:Question[]=[]
+  public questionId:string="";
+  public answerList:Answer[]=[];
+
   private urlBase="http://localhost:8080/api/questions"
+  private urlBaseAnswer="http://localhost:8080/api/answers"
   
 
   constructor() { }
@@ -41,8 +53,9 @@ export class ApiService {
   }
 
   public async getQuestion(id:string):Promise<Question>{
-    const question = axios.get<Question>(this.urlBase+"/"+id);
-    let data=(await question).data;
+    const question = await axios.get(this.urlBase+"/",{ params: { id: id }});
+    let data=question.data;
+    
     return data;
   }
 
@@ -63,8 +76,6 @@ export class ApiService {
   }
   public async getSearchQuestions(word:string):Promise<Question[]>{
     const list=await axios.get(this.urlBase+"/search",{ params: { title: word }});
-
-    
     let data= list.data;
     console.log(data);
       return data.map((question:any)=>{
@@ -86,5 +97,29 @@ export class ApiService {
     this.questionList=await this.getAllQuestions();
     
   }
+
+  public async getAllAnswers(id:string):Promise<Answer[]>{
+    const list=await axios.get(this.urlBaseAnswer+"/"+id);
+    let data=list.data;
+    
+    return data.map((answer:any)=>{
+      return{
+        id:answer.id,
+        answer_date:answer.answer_date,
+        content:answer.content,
+        flag:answer.flag,
+        // author:answer.user.username
+      }
+    })   
+  }
   
+  public async addAnswer(answer:Answer,Qid:string){
+    const newAnswer= await axios.post(this.urlBaseAnswer+"/"+Qid,answer);
+
+    this.answerList.push(newAnswer.data);
+  }
+
+  public async loadAnswers(id:string){
+    this.answerList=await this.getAllAnswers(id);
+  }
 }

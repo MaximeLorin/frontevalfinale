@@ -9,13 +9,13 @@
     (ngSubmit)="submitQuestion()"
     class="subQuestion__form"
   >
-    <label for="Titre">Titre</label>
+    <label for="Titre">Votre question</label>
     <input
       type="text"
       formControlName="title"
       class="subQuestion__form--input"
     />
-    <label for="Contenu">Contenu</label>
+    <label for="Contenu">Dites en plus</label>
     <textarea
       name="Contenu"
       id="Contenu"
@@ -33,14 +33,14 @@
       <option value="C">C</option>
       <option value="PHP">PHP</option>
     </select>
-    <label for="Publier">Poser la question</label>
+    <label for="Publier"></label>
 
     <button
       [disabled]="!createQuestion.valid"
       type="submit"
       class="subQuestion__form--btn"
     >
-      + Poser la question
+      + Envoyer
     </button>
   </form>
 </section>

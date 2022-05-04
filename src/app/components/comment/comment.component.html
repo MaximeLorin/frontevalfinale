@@ -1,1 +1,13 @@
-<p>comment works!</p>
+<article class="answer">
+  <p class="answer__content">
+    {{ answer?.content }}
+  </p>
+  <div class="answer__info">
+    <!-- <a class="answer__info--author">{{ answer?.author }}</a> -->
+    <p class="question__info--date">{{ formatedDate }}</p>
+  </div>
+
+  <!-- <p class="question__delete" (click)="deleteButton()">
+      <b>Supprimer</b>
+    </p> -->
+</article>

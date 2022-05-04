@@ -1,1 +1,30 @@
-<p>add-comment works!</p>
+<div class="openSubAnswer">
+  <p class="openSubAnswer__text" (click)="openSubscribe()">
+    {{ answerString }}
+  </p>
+</div>
+<section class="subAnswer" [ngClass]="open ? 'open' : 'close'">
+  <form
+    [formGroup]="createAnswer"
+    (ngSubmit)="submitAnswer(this.apiService.questionId)"
+    class="subAnswer__form"
+  >
+    <label for="Contenu">Votre réponse</label>
+    <textarea
+      name="Contenu"
+      id="Contenu"
+      cols="40"
+      rows="10"
+      formControlName="content"
+      class="subAnswer__form--input"
+    ></textarea>
+
+    <button
+      [disabled]="!createAnswer.valid"
+      type="submit"
+      class="subAnswer__form--btn"
+    >
+      + Envoyer
+    </button>
+  </form>
+</section>

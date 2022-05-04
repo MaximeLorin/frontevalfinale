@@ -33,6 +33,8 @@ export class AddQuestionComponent implements OnInit {
     console.log(this.createQuestion.value);
     
     this.apiService.loadQuestions();
+    this.openSubscribe();
+    this.createQuestion.reset();
     
   }
 

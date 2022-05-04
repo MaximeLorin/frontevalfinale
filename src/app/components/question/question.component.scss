@@ -47,6 +47,33 @@
             font-size: 1rem;
         }
     }
+    &__language{
+        position: absolute;
+        width: 75px;
+        @include radiusBorder;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 15px;
+        bottom: 15px;
+        border: solid 1px $secondairy-color;
+        background-color: lighten($color: $secondairy-color, $amount: 30%);
+        transition: all 0.2s;
+        &--text{
+            font-weight: bolder;
+            color: darken($color: $secondairy-color, $amount:15%);
+            font-size: 1rem;
+        }
+        &:hover{
+            cursor: pointer;
+            background-color:  lighten($color: $secondairy-color, $amount: 45%);
+        }
+      
+    }
+}
+.question__language:hover .question__language--text{
+    color:$secondairy-color;
 }
 .inHomePage{
     height: 110px;
