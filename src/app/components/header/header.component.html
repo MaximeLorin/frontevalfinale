@@ -39,13 +39,13 @@
       />
     </form>
     <div
-      *ngFor="let article of apiServices.questionSearchList"
+      *ngFor="let question of apiServices.questionSearchList"
       class="header__search--list"
     >
-      <!-- <app-mini-article
-        [article]="article"
-        class="miniArticleList"
-      ></app-mini-article> -->
+      <app-mini-question
+        [question]="question"
+        class="miniQuestionList"
+      ></app-mini-question>
     </div>
   </div>
 </header>

@@ -1,0 +1,30 @@
+@import '~src/scss/reset';
+@import '~src/scss/variable';
+@import "~src/scss/mixins";
+@import '~src/scss/typo';
+
+.miniquestion{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    transition: all 0.2s;
+
+    &__image{
+        object-fit: cover;
+        margin-left: 10px;
+        height: 30px;
+        width: 40px;
+    }
+    &__title{
+        width: 70%;
+        font-size: $parag-font;
+       white-space: nowrap;
+       text-overflow: ellipsis;
+        margin-left: 8px;
+        overflow: hidden;
+    }
+    &:hover{
+        background-color: lighten($color: $secondairy-color, $amount: 20%);
+        cursor: pointer;
+    }
+}

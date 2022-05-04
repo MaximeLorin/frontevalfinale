@@ -25,7 +25,7 @@ export class ApiService {
   public async getAllQuestions():Promise<Question[]>{
       const list=await axios.get(this.urlBase);
       let data=list.data;
-      console.log(data);
+      console.log(data[0].user.username);
       
       return data.map((question:any)=>{
         return{
@@ -62,8 +62,11 @@ export class ApiService {
     return await axios.delete(this.urlBase+"/"+question.id);
   }
   public async getSearchQuestions(word:string):Promise<Question[]>{
-    const list=await axios.get(this.urlBase+"/searchPart",{ params: { title: word }});
+    const list=await axios.get(this.urlBase+"/search",{ params: { title: word }});
+
+    
     let data= list.data;
+    console.log(data);
       return data.map((question:any)=>{
         return{
           id:question.id,

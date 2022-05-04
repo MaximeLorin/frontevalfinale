@@ -1,1 +1,9 @@
-<p>mini-question works!</p>
+<article
+  class="miniquestion"
+  [routerLink]="['/question', question?.id]"
+  (click)="clearSearchList()"
+>
+  <h2 class="miniquestion__title" [routerLink]="['/question', question?.id]">
+    {{ question?.title }}
+  </h2>
+</article>

@@ -24,6 +24,8 @@ export class AddQuestionComponent implements OnInit {
       Validators.minLength(10),
       Validators.maxLength(800),
     ]),
+    language: new FormControl('',
+    [Validators.required])
   });
 
   submitQuestion() {

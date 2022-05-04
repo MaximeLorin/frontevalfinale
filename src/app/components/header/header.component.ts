@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.searchForm.valueChanges.subscribe(changes => {
       this.searchContent=changes.title;
       this.apiServices.loadQuestionsSearch(this.searchContent);
-      console.log(this.apiServices.questionSearchList)
+      console.log(this.searchContent,this.apiServices.questionSearchList)
       
   });
   }
