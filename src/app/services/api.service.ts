@@ -24,8 +24,10 @@ export interface Answer{
 })
 export class ApiService {
   public questionList:Question[]=[];
-  public questionSearchList:Question[]=[]
+  public questionSearchList:Question[]=[];
+  public questionLanguageList:Question[]=[];
   public questionId:string="";
+  public currentLanguage:any="";
   public answerList:Answer[]=[];
 
   private urlBase="http://localhost:8080/api/questions"
@@ -34,10 +36,27 @@ export class ApiService {
 
   constructor() { }
 
+  public async searchByLanguage(language:any){
+    const list=await axios.get(this.urlBase+"/"+language)
+    let data=list.data;
+    
+    return data.map((question:any)=>{
+      return{
+        id:question.id,
+        question_date:question.question_date,
+        title:question.title,
+        content:question.content,
+        flag:question.flag,
+        language:question.language,
+        author:question.user.username
+      }
+    })   
+  }
+
   public async getAllQuestions():Promise<Question[]>{
       const list=await axios.get(this.urlBase);
       let data=list.data;
-      console.log(data[0].user.username);
+ 
       
       return data.map((question:any)=>{
         return{
@@ -95,6 +114,12 @@ export class ApiService {
   }
   public async loadQuestions(){
     this.questionList=await this.getAllQuestions();
+    
+  }
+  public async loadQuestionsLang(){
+
+    this.questionLanguageList=await this.searchByLanguage(this.currentLanguage);
+    console.log(this.questionLanguageList);
     
   }
 

@@ -5,8 +5,13 @@
   <p class="question__content" *ngIf="!homePage && !modifyContent">
     {{ question?.content }}
   </p>
-  <div class="question__language">
-    <p class="question__language--text">{{ question?.language }}</p>
+  <div class="question__language" [routerLink]="['language']">
+    <p
+      class="question__language--text"
+      (click)="createLanguageList(question?.language)"
+    >
+      {{ question?.language }}
+    </p>
   </div>
   <div class="question__info">
     <a class="question__info--author">{{ question?.author }}</a>

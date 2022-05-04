@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
       Validators.maxLength(26),
     ])
   })
+  
   constructor(public apiServices:ApiService, public connectServices:ConnectService) { }
 
   async ngOnInit() {

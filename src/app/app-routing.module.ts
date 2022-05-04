@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConnectComponent } from './pages/connect/connect.component';
 import { HomeComponent } from './pages/home/home.component';
 import { QuestionPageComponent } from './pages/question-page/question-page.component';
+import { QuestionsLangComponent } from './pages/questions-lang/questions-lang.component';
 
 const routes: Routes = [{
   path:'', component:HomeComponent
 },{path:'question/:id', component:QuestionPageComponent},
-{path:'connect/:type', component:ConnectComponent}];
+{path:'connect/:type', component:ConnectComponent},{
+  path:'language',component:QuestionsLangComponent
+}];
 
 
 @NgModule({

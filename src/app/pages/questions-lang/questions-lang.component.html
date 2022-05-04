@@ -1,0 +1,8 @@
+<div *ngFor="let question of apiService.questionLanguageList">
+  <app-question
+    [question]="question"
+    (deleted)="apiService.deleteQuestion($event)"
+    (modify)="apiService.modifyQuestion($event, $event)"
+    [homePage]="true"
+  ></app-question>
+</div>

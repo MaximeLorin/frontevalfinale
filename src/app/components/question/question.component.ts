@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Question } from 'src/app/services/api.service';
+import { ApiService, Question } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-question',
@@ -17,9 +17,14 @@ export class QuestionComponent implements OnInit {
   public homePage=false;
   public modifyContent:boolean=false;
   public formatedDate:String="";
-  constructor() { 
-    
-    
+  
+  constructor(public apiService:ApiService) { }
+  
+  async createLanguageList(language:any){
+    console.log(language);
+    this.apiService.currentLanguage=language;
+    this.apiService.loadQuestionsLang();
+    console.log(this.apiService.questionLanguageList)
   }
   
   transformDate(){
