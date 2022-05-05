@@ -4,7 +4,7 @@
     (deleted)="apiService.deleteQuestion($event)"
   ></app-question>
   <app-add-comment></app-add-comment>
-  <div *ngFor="let answer of answerList">
+  <div *ngFor="let answer of apiService.answerList">
     <app-comment [answer]="answer"></app-comment>
   </div>
 </section>

@@ -20,13 +20,17 @@ export class QuestionComponent implements OnInit {
   
   constructor(public apiService:ApiService) { }
   
-  async createLanguageList(language:any){
-    console.log(language);
+  changeCurrentLang(language:any){
     this.apiService.currentLanguage=language;
-    this.apiService.loadQuestionsLang();
-    console.log(this.apiService.questionLanguageList)
-  }
+    sessionStorage.setItem("language",language)
   
+  }
+  refreshLang(){
+    if(sessionStorage.getItem("language")){
+      const language=sessionStorage.getItem("language")
+      this.changeCurrentLang(language);
+    }
+  }
   transformDate(){
     if(this.question){
       let test:Date=this.question?.question_date;
@@ -40,7 +44,10 @@ export class QuestionComponent implements OnInit {
     
   }
   ngOnInit(){
+    this.refreshLang();
     this.transformDate();
+    console.log(this.apiService.currentLanguage);
+    
   }
   // deleteButton(){
   //   this.deleted.emit(this.article);

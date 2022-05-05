@@ -23,8 +23,6 @@ export class AddCommentComponent implements OnInit {
 
   async submitAnswer(Qid:string) {
     await this.apiService.addAnswer(this.createAnswer.value,Qid);
-    console.log(this.createAnswer.value);
-    
     await this.apiService.loadAnswers(Qid);
     this.openSubscribe();
     this.createAnswer.reset()

@@ -119,7 +119,7 @@ export class ApiService {
   public async loadQuestionsLang(){
 
     this.questionLanguageList=await this.searchByLanguage(this.currentLanguage);
-    console.log(this.questionLanguageList);
+    console.log(this.currentLanguage);
     
   }
 
@@ -140,8 +140,8 @@ export class ApiService {
   
   public async addAnswer(answer:Answer,Qid:string){
     const newAnswer= await axios.post(this.urlBaseAnswer+"/"+Qid,answer);
-
     this.answerList.push(newAnswer.data);
+
   }
 
   public async loadAnswers(id:string){

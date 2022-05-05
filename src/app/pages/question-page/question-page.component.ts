@@ -34,10 +34,8 @@ export class QuestionPageComponent implements OnInit {
   async ngOnInit() {
     if(this.questionId){
       await this.apiService.loadAnswers(this.questionId);
-      const answers=this.apiService.answerList;
       this.apiService.questionId=this.questionId;
-      console.log(this.apiService.questionId)
-      this.answerList=answers;
+  
     }
     
       

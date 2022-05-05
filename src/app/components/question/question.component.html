@@ -8,7 +8,7 @@
   <div class="question__language" [routerLink]="['language']">
     <p
       class="question__language--text"
-      (click)="createLanguageList(question?.language)"
+      (click)="changeCurrentLang(question?.language)"
     >
       {{ question?.language }}
     </p>
