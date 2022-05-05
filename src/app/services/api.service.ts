@@ -52,6 +52,26 @@ export class ApiService {
       }
     })   
   }
+  public async getIdWithName(name:String):Promise<string>{
+    const id=await axios.get("http://localhost:8080/api/users"+"/"+name);
+    const data=id.data
+    return data.id;
+  }
+  public async getAllQuestionsById(id:string):Promise<Question[]>{
+    const list=await axios.get(this.urlBase+"/user",{ params: { user_id: id }});
+    let data=list.data;
+    return data.map((question:any)=>{
+      return{
+        id:question.id,
+        question_date:question.question_date,
+        title:question.title,
+        content:question.content,
+        flag:question.flag,
+        language:question.language,
+        author:question.user.username
+      }
+    })   
+}
 
   public async getAllQuestions():Promise<Question[]>{
       const list=await axios.get(this.urlBase);
@@ -115,6 +135,11 @@ export class ApiService {
   public async loadQuestions(){
     this.questionList=await this.getAllQuestions();
     
+  }
+  public async loadQuestionsByUser(name:string){
+    const id=await this.getIdWithName(name);
+    this.questionList=await this.getAllQuestionsById(id);
+
   }
   public async loadQuestionsLang(){
 

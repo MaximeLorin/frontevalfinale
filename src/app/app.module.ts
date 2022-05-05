@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ConnectComponent } from './pages/connect/connect.component';
 import { QuestionPageComponent } from './pages/question-page/question-page.component';
 import { QuestionsLangComponent } from './pages/questions-lang/questions-lang.component';
+import { UserQuestionsComponent } from './pages/user-questions/user-questions.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { QuestionsLangComponent } from './pages/questions-lang/questions-lang.co
     HeaderComponent,
     ConnectComponent,
     QuestionPageComponent,
-    QuestionsLangComponent
+    QuestionsLangComponent,
+    UserQuestionsComponent
   ],
   imports: [
     BrowserModule,

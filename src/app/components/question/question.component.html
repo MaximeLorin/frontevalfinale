@@ -14,7 +14,11 @@
     </p>
   </div>
   <div class="question__info">
-    <a class="question__info--author">{{ question?.author }}</a>
+    <a
+      class="question__info--author"
+      [routerLink]="['/user', question?.author]"
+      >{{ question?.author }}</a
+    >
     <p class="question__info--date">{{ formatedDate }}</p>
   </div>
 
