@@ -1,0 +1,39 @@
+@import '~src/scss/reset';
+@import '~src/scss/variable';
+@import "~src/scss/mixins";
+@import '~src/scss/typo';
+
+.subscribe{
+    margin-top: 100px;
+    font-size: $parag-font;
+    @include itemCenterColumn;
+    &__input{
+        @include radiusBorder;
+        padding: 5px;
+        margin-top:5px ;
+        margin-bottom:10px;
+        font-size: $parag-font;
+        border:solid 2px $secondairy-color;
+        resize: none;
+        &:focus{
+            background-color: lighten($color: $secondairy-color, $amount: 40%);
+            border-color: darken($color: $secondairy-color, $amount: 10%);
+            outline-style: none;
+        
+        }
+        
+        
+    }
+    &__btn{
+        @include radiusBorder;
+        padding: 5px;
+        margin-top:15px ;
+        margin-bottom:10px;
+        font-size: $parag-font;
+        border:solid 2px $secondairy-color;
+        background-color: lighten($color: $secondairy-color, $amount: 40%);
+        &:hover{
+            cursor:pointer;
+        }
+    }
+}

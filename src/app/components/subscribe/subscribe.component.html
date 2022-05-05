@@ -1,12 +1,18 @@
 <section>
-  <form [formGroup]="subUser" (ngSubmit)="submitSubUser()">
+  <form [formGroup]="subUser" (ngSubmit)="submitSubUser()" class="subscribe">
     <label for="Username">Nom d'utilisateur</label>
-    <input type="text" formControlName="username" />
+    <input type="text" formControlName="username" class="subscribe__input" />
     <label for="Email">Email</label>
-    <input type="text" formControlName="email" />
+    <input type="text" formControlName="email" class="subscribe__input" />
     <label for="Password">Mot de Passe</label>
-    <input type="text" formControlName="password" />
+    <input
+      type="password"
+      formControlName="password"
+      class="subscribe__input"
+    />
 
-    <button [disabled]="!subUser.valid" type="submit">+ S'inscrire</button>
+    <button [disabled]="!subUser.valid" type="submit" class="subscribe__btn">
+      + S'inscrire
+    </button>
   </form>
 </section>

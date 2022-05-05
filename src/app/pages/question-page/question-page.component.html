@@ -3,7 +3,7 @@
     [question]="question"
     (deleted)="apiService.deleteQuestion($event)"
   ></app-question>
-  <app-add-comment></app-add-comment>
+  <app-add-comment *ngIf="connectService.isPresent()"></app-add-comment>
   <div *ngFor="let answer of apiService.answerList">
     <app-comment [answer]="answer"></app-comment>
   </div>

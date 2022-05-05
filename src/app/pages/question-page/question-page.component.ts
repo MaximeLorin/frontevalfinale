@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Answer, ApiService, Question } from 'src/app/services/api.service';
+import { ConnectService } from 'src/app/services/connect.service';
 
 @Component({
   selector: 'app-question-page',
@@ -13,7 +14,7 @@ export class QuestionPageComponent implements OnInit {
   public questionId?:string;
   public answerQid?:string;
 
-  constructor(public apiService: ApiService,private activatedRoute: ActivatedRoute,private router: Router) { 
+  constructor(public apiService: ApiService,private activatedRoute: ActivatedRoute,private router: Router,public connectService:ConnectService) { 
     this.questionId = this.activatedRoute.snapshot.params['id'];
     const question= this.apiService.questionList.find((question)=>question.id===this.questionId)
    

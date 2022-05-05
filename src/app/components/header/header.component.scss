@@ -72,6 +72,20 @@
         background-color: $secondairy-color;
         @include radiusBorder;
     }
+    &__hello{
+        position: absolute;
+        left: 5%;
+        bottom:8%;
+        &--name{
+            color:$secondairy-color;
+            font-weight: bolder;
+            transition: all 0.2s;
+            &:hover{
+                cursor: pointer;
+                color:  lighten($color: $secondairy-color, $amount: 20%);
+            }
+        }
+    }
   
 }
 .menuLink{

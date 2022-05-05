@@ -50,4 +50,10 @@
       ></app-mini-question>
     </div>
   </div>
+  <p class="header__hello" *ngIf="connectServices.isPresent()">
+    Bonjour
+    <a class="header__hello--name" [routerLink]="['/user', username]">{{
+      username
+    }}</a>
+  </p>
 </header>

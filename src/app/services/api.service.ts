@@ -16,6 +16,7 @@ export interface Answer{
   answer_date:Date,
   content:string,
   flag:boolean,
+  author:string
   // author:string
 }
 
@@ -101,7 +102,7 @@ export class ApiService {
   public async addQuestion(question:Question){
     const newQuestion= await axios.post(this.urlBase,question);
 
-    this.questionList.push(newQuestion.data);
+    this.questionList.unshift(newQuestion.data);
   }
 
   public async modifyQuestion(question:Question, id:string){
@@ -158,7 +159,7 @@ export class ApiService {
         answer_date:answer.answer_date,
         content:answer.content,
         flag:answer.flag,
-        // author:answer.user.username
+        author:answer.user.username
       }
     })   
   }

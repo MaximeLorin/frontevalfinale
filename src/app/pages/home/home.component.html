@@ -1,5 +1,5 @@
-<app-add-question></app-add-question>
-<div *ngFor="let question of apiServices.questionList">
+<app-add-question *ngIf="connectService.isPresent()"></app-add-question>
+<div *ngFor="let question of apiServices.questionList" class="questionPage">
   <app-question
     [question]="question"
     (deleted)="apiServices.deleteQuestion($event)"

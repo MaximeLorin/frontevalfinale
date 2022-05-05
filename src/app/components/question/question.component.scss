@@ -11,7 +11,7 @@
     height: 300px;
     border-bottom: solid 5px $secondairy-color;
     display: flex;
-    justify-content: center;
+    justify-content:space-evenly ;
     flex-direction: column;
     align-items: center;
     border-top-right-radius: 8px;
@@ -19,8 +19,14 @@
     transition: all 0.2s;
     position: relative;
     &:hover{
-        cursor: pointer;
         background-color: lighten($color: $secondairy-color, $amount: 40%);
+    }
+    &__title{
+        transition: all 0.2s;
+        &:hover{
+            cursor: pointer;
+            color:$secondairy-color;
+        }
     }
     &__info{
         display: flex;
@@ -79,5 +85,6 @@
     color:$secondairy-color;
 }
 .inHomePage{
+    justify-content: center;
     height: 110px;
 }

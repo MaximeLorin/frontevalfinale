@@ -10,7 +10,7 @@ import { ConnectService } from 'src/app/services/connect.service';
 })
 export class HeaderComponent implements OnInit {
   type:string[]=["login","subscribe"];
-  
+  username:string="";
   searchContent: string="";
 
   searchForm = new FormGroup({
@@ -20,17 +20,30 @@ export class HeaderComponent implements OnInit {
       Validators.maxLength(26),
     ])
   })
+
+  constructor(public apiServices:ApiService, public connectServices:ConnectService) {     
+  }
   
-  constructor(public apiServices:ApiService, public connectServices:ConnectService) { }
+  getUsername(){
+    let credential=sessionStorage.getItem("credential");
+    if (credential){
+      let username=JSON.parse(credential).username;
+      return username;
+    }
+  
+  }
 
   async ngOnInit() {
+    this.username=this.getUsername();
     this.searchForm.valueChanges.subscribe(changes => {
       this.searchContent=changes.title;
       this.apiServices.loadQuestionsSearch(this.searchContent);
       console.log(this.searchContent,this.apiServices.questionSearchList)
       
   });
+
   }
+
   deconnect(){
     this.connectServices.logout();
   }
