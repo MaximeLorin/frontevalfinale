@@ -16,10 +16,14 @@ RUN npm install
 RUN npm run build
 
 
-# Stage 2: Serve app with nginx server
-
-FROM nginx:latest
-
-COPY --from=build /usr/local/app/dist/FrontFinalProject /usr/share/nginx/html
-
 EXPOSE 4200
+
+FROM nginx:alpine
+
+WORKDIR /usr/share/nginx/html
+
+RUN rm -rf ./*
+
+COPY --from=node /app/dist/frontfinalproject .
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
