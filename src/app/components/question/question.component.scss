@@ -18,6 +18,10 @@
     @include radiusBorder;
     transition: all 0.2s;
     position: relative;
+    &__content{
+        margin: 50px;
+        text-indent: 10%;
+    }
     &:hover{
         background-color: lighten($color: $secondairy-color, $amount: 40%);
     }
