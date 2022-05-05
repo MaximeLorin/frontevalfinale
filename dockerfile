@@ -24,6 +24,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=node /app/dist/frontfinalproject .
+COPY --from=node /app/dist/front-final-project .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
