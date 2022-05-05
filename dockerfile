@@ -1,9 +1,8 @@
-FROM node:latest as build
+FROM node:latest as node
 
-WORKDIR /usr/local/app
+WORKDIR /app
 
-
-COPY ./ /usr/local/app/
+COPY . .
 
 RUN npm install
 
@@ -18,6 +17,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=node /usr/local/app/dist/front-final-project .
+COPY --from=node /app/dist/front-final-project .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
